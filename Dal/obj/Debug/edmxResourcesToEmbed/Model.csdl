@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Library2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="book">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="writer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="publish_year" Type="Int32" />
+  </EntityType>
+  <EntityType Name="borrows">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="borrow_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="book_id" Type="Int32" />
+    <Property Name="borrow_date" Type="DateTime" Precision="3" />
+    <Property Name="return_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="Library2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="book" EntityType="Self.book" />
+    <EntitySet Name="borrows" EntityType="Self.borrows" />
+  </EntityContainer>
+</Schema>
